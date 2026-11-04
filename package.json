@@ -1,0 +1,17 @@
+{
+  "name": "leoli-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Leo 的技术博客：模型选型、Agent 实践与踩过的坑",
+  "scripts": {
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "sync": "node tools/sync_posts.js"
+  },
+  "devDependencies": {
+    "markdown-it-mark": "^4.0.0",
+    "vitepress": "^1.6.4"
+  }
+}

@@ -1,0 +1,363 @@
+/**
+ * 工程蓝色板 —— 与公众号排版保持同一谱系
+ * 主色 #037ce6 / 正文 #3e4753 / 浅蓝底 #eaf3fd / 行内代码 #c7254e
+ */
+
+:root {
+  --vp-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+  --vp-font-family-mono: ui-monospace, SFMono-Regular, 'SF Mono', Consolas,
+    'Liberation Mono', Menlo, monospace;
+
+  --vp-c-brand-1: #037ce6;
+  --vp-c-brand-2: #02559e;
+  --vp-c-brand-3: #037ce6;
+  --vp-c-brand-soft: rgba(3, 124, 230, 0.13);
+
+  --vp-c-text-1: #3e4753;
+  --vp-c-text-2: #7c8697;
+  --vp-c-text-3: #9aa3b0;
+
+  --vp-c-divider: #e5e7eb;
+  --vp-c-border: #d9d9d9;
+  --vp-c-bg-soft: #fafafa;
+  --vp-c-gutter: #f2f2f2;
+}
+
+.dark {
+  --vp-c-brand-1: #4da3f0;
+  --vp-c-brand-2: #9ccbf5;
+  --vp-c-brand-3: #4da3f0;
+  --vp-c-brand-soft: rgba(77, 163, 240, 0.16);
+
+  --vp-c-text-1: #e3e7ec;
+  --vp-c-text-2: #a4adba;
+  --vp-c-text-3: #7c8697;
+
+  --vp-c-divider: #2a2f38;
+  --vp-c-border: #333a45;
+  --vp-c-bg-soft: #1b1f26;
+}
+
+/* ---------- 正文排版 ---------- */
+
+.vp-doc {
+  font-size: 16.5px;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+.vp-doc p {
+  margin: 1.15em 0;
+}
+
+/* 章节标题：左侧蓝竖条，呼应公众号章节样式 */
+.vp-doc h2 {
+  position: relative;
+  border-top: none;
+  margin-top: 2.6em;
+  margin-bottom: 1em;
+  padding: 0 0 0 15px;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.vp-doc h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  width: 4px;
+  height: 1.05em;
+  background: var(--vp-c-brand-1);
+  border-radius: 2px;
+}
+
+.vp-doc h3 {
+  margin-top: 2em;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vp-c-brand-2);
+}
+
+.vp-doc h2 .header-anchor,
+.vp-doc h3 .header-anchor {
+  top: 0;
+}
+
+/* 行内代码：玫红字 + 淡底 */
+.vp-doc :not(pre) > code {
+  color: #c7254e;
+  background: rgba(199, 37, 78, 0.075);
+  font-size: 0.88em;
+  padding: 0.16em 0.38em;
+  border-radius: 4px;
+}
+
+.dark .vp-doc :not(pre) > code {
+  color: #f2779a;
+  background: rgba(242, 119, 154, 0.13);
+}
+
+/* 引用块：导语用，浅蓝底 + 左竖线 */
+.vp-doc blockquote {
+  margin: 1.6em 0;
+  padding: 14px 18px;
+  border-left: 3px solid var(--vp-c-brand-1);
+  background: #eaf3fd;
+  border-radius: 0 6px 6px 0;
+}
+
+.vp-doc blockquote p {
+  margin: 0.4em 0;
+  color: #2c3745;
+  font-size: 16px;
+}
+
+.vp-doc blockquote > :first-child {
+  margin-top: 0;
+}
+
+.vp-doc blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.dark .vp-doc blockquote {
+  background: rgba(77, 163, 240, 0.1);
+}
+
+.dark .vp-doc blockquote p {
+  color: #d6dde6;
+}
+
+/* 表格：蓝底白字表头 */
+.vp-doc table {
+  display: table;
+  width: 100%;
+  margin: 1.6em 0;
+  font-size: 15px;
+  border-collapse: collapse;
+}
+
+.vp-doc th {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.vp-doc td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--vp-c-divider);
+  vertical-align: top;
+}
+
+.vp-doc tr:nth-child(2n) {
+  background: transparent;
+}
+
+.dark .vp-doc th {
+  color: #0e1116;
+}
+
+/* 图片：细边框 + 圆角 */
+.vp-doc img {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: #fff;
+}
+
+.dark .vp-doc img {
+  background: #fff;
+  border-color: #333a45;
+}
+
+/* 正文宽度：阅读舒适区 */
+@media (min-width: 960px) {
+  .VPDoc.has-aside .content-container {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .VPDoc:not(.has-aside) .content-container {
+    max-width: 760px;
+  }
+}
+
+/* ---------- 首页 ---------- */
+
+.VPHero .name,
+.VPHero .text {
+  letter-spacing: -0.01em;
+}
+
+.VPHero .text {
+  color: var(--vp-c-brand-1);
+}
+
+.VPFeature {
+  border-radius: 8px;
+}
+
+/* 文章列表通用 */
+.post-list {
+  margin: 2em 0;
+}
+
+.post-item {
+  display: block;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  text-decoration: none !important;
+  transition: border-color 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+
+.post-item:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 4px 16px rgba(3, 124, 230, 0.09);
+  transform: translateY(-1px);
+}
+
+.post-item h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--vp-c-text-1);
+  line-height: 1.5;
+  transition: color 0.18s;
+}
+
+.post-item:hover h3 {
+  color: var(--vp-c-brand-1);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--vp-c-text-3);
+  margin-bottom: 6px;
+}
+
+.post-sep {
+  color: var(--vp-c-divider);
+}
+
+.post-desc {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--vp-c-text-2);
+}
+
+.post-empty {
+  padding: 32px 0;
+  text-align: center;
+  color: var(--vp-c-text-3);
+  font-size: 14px;
+}
+
+/* ---------- 首页内容区 ---------- */
+
+.home-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 8px 24px 88px;
+}
+
+.home-wrap .home-h2 {
+  position: relative;
+  margin: 52px 0 18px;
+  padding-left: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  border-top: none;
+  letter-spacing: 0;
+}
+
+.home-wrap .home-h2::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.24em;
+  width: 4px;
+  height: 1.02em;
+  background: var(--vp-c-brand-1);
+  border-radius: 2px;
+}
+
+/* hero 与列表用同一容器宽度，左边界才能对齐 */
+.VPHome .VPHero .container {
+  max-width: 860px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.VPHome .VPHero {
+  padding-top: 76px;
+  padding-bottom: 12px;
+}
+
+.VPHome .VPHero .main {
+  max-width: none;
+}
+
+/* 名字用深色、标语用蓝色，两级层次 */
+.VPHome .VPHero .name {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--vp-c-text-1);
+  font-size: 40px;
+  line-height: 1.18;
+}
+
+.VPHome .VPHero .text {
+  color: var(--vp-c-brand-1);
+  font-size: 46px;
+  line-height: 1.2;
+}
+
+.VPHome .VPHero .tagline {
+  color: var(--vp-c-text-2);
+  font-size: 17px;
+}
+
+/* 标题内的行内代码：去掉红底，避免和蓝色竖条打架 */
+.vp-doc h2 code,
+.vp-doc h3 code {
+  color: inherit;
+  background: transparent;
+  font-size: 0.92em;
+  padding: 0;
+}
+
+/* 表格在窄屏可横向滚动，不挤成一坨 */
+.vp-doc table {
+  border-collapse: collapse;
+}
+
+@media (max-width: 640px) {
+  .home-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .VPHome .VPHero {
+    padding-top: 48px;
+  }
+
+  .post-item {
+    padding: 16px;
+  }
+
+  .post-item h3 {
+    font-size: 16px;
+  }
+}
