@@ -264,28 +264,29 @@
   font-size: 14px;
 }
 
-/* ---------- 待消化 ---------- */
+/* ---------- 清单卡片（Todo / 收藏共用） ---------- */
 /* 注意：正文里的 p / a / h2 都有 .vp-doc 前缀的全局规则，
    这里的元素级样式必须同样带 .vp-doc，否则优先级不够会被盖掉 */
 
-.vp-doc .pend-summary {
+/* 状态靠左侧竖条颜色区分：默认蓝=待办，琥珀=进行中，灰=已完成 */
+.vp-doc .list-summary {
   margin: 0 0 4px;
   font-size: 14px;
   color: var(--vp-c-text-2);
 }
 
-.pend-summary b {
+.list-summary b {
   margin: 0 2px;
   font-size: 17px;
   color: var(--vp-c-brand-1);
 }
 
-.pend-group {
+.list-group {
   margin-top: 34px;
 }
 
 /* 覆盖 vp-doc h2 默认的上边框、大间距与绝对定位的竖条 */
-.vp-doc .pend-group-title {
+.vp-doc .list-group-title {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -298,7 +299,7 @@
   letter-spacing: 0;
 }
 
-.vp-doc .pend-group-title::before {
+.vp-doc .list-group-title::before {
   content: '';
   position: static;
   width: 3px;
@@ -307,7 +308,7 @@
   border-radius: 2px;
 }
 
-.pend-count {
+.list-count {
   min-width: 20px;
   padding: 1px 7px;
   border-radius: 10px;
@@ -318,7 +319,7 @@
   color: var(--vp-c-text-3);
 }
 
-.pend-item {
+.list-item {
   padding: 15px 18px;
   margin-bottom: 10px;
   border: 1px solid var(--vp-c-divider);
@@ -327,23 +328,34 @@
   transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
 }
 
-.pend-item:hover {
+.list-item:hover {
   border-color: var(--vp-c-brand-1);
   box-shadow: 0 4px 16px rgba(3, 124, 230, 0.09);
   transform: translateY(-1px);
 }
 
 /* 状态只改左竖条颜色，不抢正文注意力 */
-.pend-item.is-reading {
+.list-item.is-reading,
+.list-item.is-drafting {
   border-left-color: #d97706;
 }
 
-.pend-item.is-done {
+.list-item.is-done {
   border-left-color: var(--vp-c-divider);
   opacity: 0.72;
 }
 
-.vp-doc .pend-title {
+/* 收藏是「反复回看」的入口，描边稍重一点，跟一次性的待办区分开 */
+.list-item.is-pick {
+  border-left-width: 3px;
+  background: linear-gradient(90deg, rgba(3, 124, 230, 0.045), transparent 42%);
+}
+
+.dark .list-item.is-pick {
+  background: linear-gradient(90deg, rgba(77, 163, 240, 0.07), transparent 42%);
+}
+
+.vp-doc .list-title {
   display: inline-block;
   font-size: 16.5px;
   font-weight: 700;
@@ -353,18 +365,27 @@
   transition: color 0.18s;
 }
 
-.vp-doc .pend-title:hover {
+.vp-doc .list-title:hover {
   color: var(--vp-c-brand-1);
 }
 
-.pend-arrow {
-  margin-left: 5px;
+/* 待出稿的标题不是链接（还没稿子），不做悬浮变色和手型 */
+.vp-doc .list-title.is-text {
+  cursor: default;
+}
+
+.vp-doc .list-title.is-text:hover {
+  color: var(--vp-c-text-1);
+}
+
+.list-arrow {
+  margin-left: 0;
   font-size: 13px;
   font-weight: 400;
   color: var(--vp-c-text-3);
 }
 
-.pend-meta {
+.list-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -376,20 +397,20 @@
 }
 
 /* 分隔符挂在后一段文字前面，换行时不会单独掉在行尾 */
-.pend-meta > span + span::before {
+.list-meta > span + span::before {
   content: '/';
   margin-right: 8px;
   color: var(--vp-c-divider);
 }
 
-.vp-doc .pend-why {
+.vp-doc .list-why {
   margin: 9px 0 0;
   font-size: 14.5px;
   line-height: 1.68;
   color: var(--vp-c-text-2);
 }
 
-.pend-foot {
+.list-foot {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -397,7 +418,7 @@
   margin-top: 10px;
 }
 
-.pend-stale {
+.list-stale {
   padding: 1px 8px;
   border-radius: 10px;
   background: rgba(217, 119, 6, 0.12);
@@ -405,22 +426,22 @@
   color: #b45309;
 }
 
-.dark .pend-stale {
+.dark .list-stale {
   background: rgba(217, 119, 6, 0.18);
   color: #f0b46a;
 }
 
-.pend-digest {
+.list-link {
   font-size: 13px;
   color: var(--vp-c-brand-1);
   text-decoration: none;
 }
 
-.pend-digest:hover {
+.list-link:hover {
   text-decoration: underline;
 }
 
-.vp-doc .pend-note {
+.vp-doc .list-note {
   margin: 40px 0 0;
   padding-top: 16px;
   border-top: 1px solid var(--vp-c-divider);
@@ -430,12 +451,17 @@
 }
 
 @media (max-width: 640px) {
-  .pend-item {
+  .list-item {
     padding: 13px 14px;
   }
 
-  .vp-doc .pend-title {
+  .vp-doc .list-title {
     font-size: 15.5px;
+  }
+
+  /* 窄屏下长标题换行时，箭头会单独掉到下一行，干脆藏掉 */
+  .list-arrow {
+    display: none;
   }
 }
 
@@ -466,6 +492,20 @@
   height: 1.02em;
   background: var(--vp-c-brand-1);
   border-radius: 2px;
+}
+
+.home-wrap .home-more {
+  margin: 12px 0 0;
+  font-size: 13.5px;
+}
+
+.home-wrap .home-more a {
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+
+.home-wrap .home-more a:hover {
+  text-decoration: underline;
 }
 
 /* hero 与列表用同一容器宽度，左边界才能对齐 */

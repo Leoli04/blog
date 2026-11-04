@@ -1,0 +1,28 @@
+[
+  {
+    "title": "AI 代理的上下文工程：构建 Manus 的经验教训",
+    "url": "https://manus.im/zh-cn/blog/Context-Engineering-for-AI-Agents-Lessons-from-Building-Manus",
+    "source": "Manus 博客 · 季逸超",
+    "added": "2026-11-04",
+    "status": "pick",
+    "why": "六条经验里最反直觉的两条：用 todo.md 复述目标来操控注意力，以及故意保留错误痕迹让模型自己学会不重犯。Agent 上下文一乱就翻这篇当检查表。",
+    "tags": [
+      "Agent",
+      "上下文"
+    ],
+    "digest": ""
+  },
+  {
+    "title": "Super-agent 设计探索：迈向更自主的 Agent 系统",
+    "url": "https://zhuanlan.zhihu.com/p/2099987320443237060",
+    "source": "知乎",
+    "added": "2026-11-04",
+    "status": "pick",
+    "why": "把 Agent 当分布式系统来设计：Router 层统一交互、Worker 层隔离并发，事件驱动做主动性，Watchdog 保存活。想不清楚多任务该怎么切的时候值得重读。",
+    "tags": [
+      "Agent",
+      "架构"
+    ],
+    "digest": ""
+  }
+]

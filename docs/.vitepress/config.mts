@@ -29,7 +29,14 @@ export default defineConfig({
     nav: [
       { text: '文章', link: '/posts/', activeMatch: '/posts/' },
       { text: '笔记', link: '/notes/', activeMatch: '/notes/' },
-      { text: '待消化', link: '/pending/', activeMatch: '/pending/' },
+      {
+        text: 'Todo',
+        items: [
+          { text: '待看文章', link: '/todo/read/' },
+          { text: '待出稿内容', link: '/todo/content/' },
+        ],
+      },
+      { text: '收藏', link: '/picks/', activeMatch: '/picks/' },
       { text: '关于', link: '/about/' },
     ],
 

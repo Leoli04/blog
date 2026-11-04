@@ -25,4 +25,8 @@ hero:
 
 <PostList type="notes" :limit="4" />
 
+<h2 class="home-h2">收藏</h2>
+
+<PickList :limit="3" more />
+
 </div>

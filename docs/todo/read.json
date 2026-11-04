@@ -1,0 +1,80 @@
+[
+  {
+    "title": "The plunging price of thought",
+    "url": "https://epoch.ai/publications/the-plunging-price-of-thought",
+    "source": "Epoch AI",
+    "added": "2026-11-04",
+    "status": "todo",
+    "why": "文章里那组「每季度降 47%」的原始出处。想把它自己承认的局限读完，尤其是榜单作弊，以及「最便宜的达标模型」这个口径和真实账单差多少。",
+    "tags": [
+      "成本",
+      "基准测试"
+    ],
+    "digest": ""
+  },
+  {
+    "title": "Tell agents the why, not just the how",
+    "url": "https://www.seangoedecke.com/tell-agents-the-why/",
+    "source": "Sean Goedecke",
+    "added": "2026-11-04",
+    "status": "todo",
+    "why": "主张给 Agent 交代优先级，而不是只丢任务清单。想验证在自己那套单据流程里到底管不管用，还是又一条听着对的道理。",
+    "tags": [
+      "Agent",
+      "提示词"
+    ],
+    "digest": ""
+  },
+  {
+    "title": "Building effective agents",
+    "url": "https://www.anthropic.com/engineering/building-effective-agents",
+    "source": "Anthropic Engineering",
+    "added": "2026-11-04",
+    "status": "todo",
+    "why": "Workflow 和 Agent 的边界划得干净。要的是那张「什么场景配哪种编排」的判断表，不是示例代码。",
+    "tags": [
+      "Agent",
+      "编排"
+    ],
+    "digest": ""
+  },
+  {
+    "title": "从 OpenClaw，怎么走到了 Super Agent？",
+    "url": "https://mp.weixin.qq.com/s/R8v1fxHpErVHq1o6euSroA",
+    "source": "腾讯技术工程",
+    "added": "2026-11-04",
+    "status": "todo",
+    "why": "想把这条演进线看清：Bot → 工作台 → 又回到 Bot 入口。两边往中间走，真正接住的是「同一件事能接着做」，不是界面形态。",
+    "tags": [
+      "Agent",
+      "产品"
+    ],
+    "digest": ""
+  },
+  {
+    "title": "你的 Personal Agent 如何真正跑起来？Agent 实战指南",
+    "url": "https://mp.weixin.qq.com/s/Nh-uiZ4N5C1qO9Uf9Im4bg",
+    "source": "腾讯技术工程",
+    "added": "2026-11-04",
+    "status": "todo",
+    "why": "把分身拆成 USER / SOUL / 操作规则 / Skill 四层，跟我现在分文件的路子接近。重点看多设备同步那段坑：两边都说记下来了，其实读的不是同一份。",
+    "tags": [
+      "Agent",
+      "上下文"
+    ],
+    "digest": ""
+  },
+  {
+    "title": "AI Infra 进阶：3 万字深入理解线性注意力机制",
+    "url": "https://mp.weixin.qq.com/s/O0_v8wz4iHxbkDLENy7EPg",
+    "source": "腾讯技术工程",
+    "added": "2026-11-04",
+    "status": "todo",
+    "why": "线性注意力 → DeltaNet → GDN → KDA 这条线，我一直只记了个名词。先弄明白固定大小的状态矩阵到底牺牲了什么，值不值得再读第二遍细节。",
+    "tags": [
+      "模型",
+      "Infra"
+    ],
+    "digest": ""
+  }
+]
