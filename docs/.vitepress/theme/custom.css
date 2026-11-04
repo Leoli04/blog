@@ -264,6 +264,181 @@
   font-size: 14px;
 }
 
+/* ---------- 待消化 ---------- */
+/* 注意：正文里的 p / a / h2 都有 .vp-doc 前缀的全局规则，
+   这里的元素级样式必须同样带 .vp-doc，否则优先级不够会被盖掉 */
+
+.vp-doc .pend-summary {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+.pend-summary b {
+  margin: 0 2px;
+  font-size: 17px;
+  color: var(--vp-c-brand-1);
+}
+
+.pend-group {
+  margin-top: 34px;
+}
+
+/* 覆盖 vp-doc h2 默认的上边框、大间距与绝对定位的竖条 */
+.vp-doc .pend-group-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 14px;
+  padding: 0;
+  border-top: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--vp-c-text-2);
+  letter-spacing: 0;
+}
+
+.vp-doc .pend-group-title::before {
+  content: '';
+  position: static;
+  width: 3px;
+  height: 15px;
+  background: var(--vp-c-brand-1);
+  border-radius: 2px;
+}
+
+.pend-count {
+  min-width: 20px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  background: var(--vp-c-default-soft);
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  color: var(--vp-c-text-3);
+}
+
+.pend-item {
+  padding: 15px 18px;
+  margin-bottom: 10px;
+  border: 1px solid var(--vp-c-divider);
+  border-left: 3px solid var(--vp-c-brand-1);
+  border-radius: 8px;
+  transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s;
+}
+
+.pend-item:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 4px 16px rgba(3, 124, 230, 0.09);
+  transform: translateY(-1px);
+}
+
+/* 状态只改左竖条颜色，不抢正文注意力 */
+.pend-item.is-reading {
+  border-left-color: #d97706;
+}
+
+.pend-item.is-done {
+  border-left-color: var(--vp-c-divider);
+  opacity: 0.72;
+}
+
+.vp-doc .pend-title {
+  display: inline-block;
+  font-size: 16.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--vp-c-text-1);
+  text-decoration: none !important;
+  transition: color 0.18s;
+}
+
+.vp-doc .pend-title:hover {
+  color: var(--vp-c-brand-1);
+}
+
+.pend-arrow {
+  margin-left: 5px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--vp-c-text-3);
+}
+
+.pend-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3px 8px;
+  margin-top: 5px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--vp-c-text-3);
+}
+
+/* 分隔符挂在后一段文字前面，换行时不会单独掉在行尾 */
+.pend-meta > span + span::before {
+  content: '/';
+  margin-right: 8px;
+  color: var(--vp-c-divider);
+}
+
+.vp-doc .pend-why {
+  margin: 9px 0 0;
+  font-size: 14.5px;
+  line-height: 1.68;
+  color: var(--vp-c-text-2);
+}
+
+.pend-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.pend-stale {
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: rgba(217, 119, 6, 0.12);
+  font-size: 12px;
+  color: #b45309;
+}
+
+.dark .pend-stale {
+  background: rgba(217, 119, 6, 0.18);
+  color: #f0b46a;
+}
+
+.pend-digest {
+  font-size: 13px;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+}
+
+.pend-digest:hover {
+  text-decoration: underline;
+}
+
+.vp-doc .pend-note {
+  margin: 40px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--vp-c-divider);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--vp-c-text-3);
+}
+
+@media (max-width: 640px) {
+  .pend-item {
+    padding: 13px 14px;
+  }
+
+  .vp-doc .pend-title {
+    font-size: 15.5px;
+  }
+}
+
 /* ---------- 首页内容区 ---------- */
 
 .home-wrap {

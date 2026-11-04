@@ -3,6 +3,7 @@ docs/.vitepress/cache/
 docs/.vitepress/dist/
 _shots/
 _shots_m/
+_shots*/
 *.log
 .DS_Store
 Thumbs.db

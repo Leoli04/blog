@@ -13,9 +13,11 @@ docs/
 │  └─ theme/              工程蓝色板 + 文章列表组件
 ├─ posts/<slug>/          长文，一篇一个目录（含 imgs/）
 ├─ notes/<slug>/          短笔记，同样是目录
+├─ pending/               待消化清单，只有一个 items.json
 ├─ about/                 关于页
 └─ public/                静态资源，favicon 等
 tools/sync_posts.js       从 wechat-studio 同步文章
+tools/add_pending.js      往待消化清单里加条目
 ```
 
 每个页面都是 `目录/index.md` 的形式，URL 统一成 `/xxx/`。
@@ -65,6 +67,40 @@ tags: ["Node"]
 ```
 
 不用跑同步脚本，也不用手动加到列表，`notes.data.js` 会自动收集。
+
+## 待消化清单
+
+看到但还没读的文章放 `docs/pending/items.json`。加一条：
+
+```bash
+node tools/add_pending.js <url> "为什么值得读"
+node tools/add_pending.js <url> "为什么值得读" --tags=Agent,成本
+```
+
+- 标题和来源会自动抓网页；抓不到就用域名兜底，也可以用 `--title=` `--source=` 手动给。
+- 同一个 URL 再跑一次是「改」不是「加」，不会产生重复条目；字段没变化就不写盘。
+- 读完标状态：`--status=reading` / `--status=done`。
+- 写成笔记之后，加 `--digest=/notes/<slug>/`，清单里会出现跳转链接。
+
+字段就这些：
+
+```json
+{
+  "title": "文章标题",
+  "url": "https://example.com/post",
+  "source": "出处",
+  "added": "2026-11-04",
+  "status": "todo",        // todo / reading / done
+  "why": "为什么值得读",
+  "tags": ["Agent"],
+  "digest": ""             // 消化完的笔记，站内路径
+}
+```
+
+`why` 是这个清单唯一不能省的东西。只存链接的清单，三个月后就是一堆打不开的书签。
+
+排序规则：待读和在读按加入时间正序（先看到的先读，新链接不插队），已消化按时间倒序。
+超过 30 天没动的待读条目会在页面上被标出来。
 
 ## 发布
 

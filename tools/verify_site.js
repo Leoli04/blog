@@ -129,6 +129,11 @@ const { sessionId: sid } = await cdp.send('Target.attachToTarget', { targetId: t
 await cdp.send('Page.enable', {}, sid)
 await cdp.send('Runtime.enable', {}, sid)
 
+// 改了 CSS 但浏览器沿用旧缓存时，截出来还是上一版的样子。
+// 这种"看起来没生效"的假象很难查，直接关掉缓存。
+await cdp.send('Network.enable', {}, sid)
+await cdp.send('Network.setCacheDisabled', { cacheDisabled: true }, sid)
+
 const report = []
 
 if (mobile) {
