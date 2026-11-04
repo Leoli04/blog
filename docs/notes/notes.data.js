@@ -1,6 +1,6 @@
 import { createContentLoader } from 'vitepress'
 
-export default createContentLoader('notes/*.md', {
+export default createContentLoader('notes/*/index.md', {
   transform(raw) {
     return raw
       .filter((page) => page.url !== '/notes/' && !page.frontmatter.draft)

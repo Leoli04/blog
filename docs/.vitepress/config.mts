@@ -6,7 +6,6 @@ export default defineConfig({
   title: 'Leo 的笔记',
   description: '模型选型、Agent 实践，以及踩过的坑。',
   base: '/blog/',
-  cleanUrls: true,
   lastUpdated: true,
 
   sitemap: {
@@ -30,7 +29,7 @@ export default defineConfig({
     nav: [
       { text: '文章', link: '/posts/', activeMatch: '/posts/' },
       { text: '笔记', link: '/notes/', activeMatch: '/notes/' },
-      { text: '关于', link: '/about' },
+      { text: '关于', link: '/about/' },
     ],
 
     search: {

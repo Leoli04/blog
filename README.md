@@ -12,10 +12,15 @@ docs/
 │  ├─ config.mts          导航、搜索、站点信息
 │  └─ theme/              工程蓝色板 + 文章列表组件
 ├─ posts/<slug>/          长文，一篇一个目录（含 imgs/）
-├─ notes/                 短笔记，平铺的 md
+├─ notes/<slug>/          短笔记，同样是目录
+├─ about/                 关于页
 └─ public/                静态资源，favicon 等
 tools/sync_posts.js       从 wechat-studio 同步文章
 ```
+
+每个页面都是 `目录/index.md` 的形式，URL 统一成 `/xxx/`。
+这不是洁癖，是因为 GitHub Pages 不做 `/foo` → `/foo.html` 的映射，
+用平铺 md 的话 `/notes/foo` 会 404。
 
 ## 本地开发
 
@@ -48,7 +53,7 @@ const CONFIG = {
 
 ## 写一篇笔记
 
-直接在 `docs/notes/` 下建 md，frontmatter 至少要有 `title`：
+新建 `docs/notes/<slug>/index.md`，frontmatter 至少要有 `title`：
 
 ```yaml
 ---
@@ -59,7 +64,7 @@ tags: ["Node"]
 ---
 ```
 
-不用同步脚本，也不用手动加到列表，`notes.data.js` 会自动收集。
+不用跑同步脚本，也不用手动加到列表，`notes.data.js` 会自动收集。
 
 ## 发布
 
