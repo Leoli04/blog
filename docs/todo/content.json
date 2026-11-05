@@ -1,1 +1,26 @@
-[]
+[
+  {
+    "title": "DeepSeek 90 天故障记录的技术分析",
+    "added": "2026-11-05",
+    "status": "done",
+    "why": "状态页给的百分比是汇报口径，事件时长才是真的；想把 0.28 个点的差额反算出来",
+    "tags": [
+      "可用性",
+      "SRE",
+      "DeepSeek"
+    ],
+    "draft": "/posts/deepseek-status-90d/"
+  },
+  {
+    "title": "Super-agent 概念讲解",
+    "added": "2026-11-05",
+    "status": "done",
+    "why": "Super 指的是上层不是超级；想讲清 Router/Worker 跟主 Agent 带子 Agent 到底差在哪",
+    "tags": [
+      "Agent",
+      "架构",
+      "DeepSeek"
+    ],
+    "draft": "/posts/super-agent-explained/"
+  }
+]
